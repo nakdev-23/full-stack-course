@@ -1,0 +1,374 @@
+/* หน้า Home - หน้าแรกของเว็บ */
+
+/* กล่องหลักของหน้า Home จัดทุกอย่างให้อยู่กลางจอ */
+.home-container {
+  min-height: 100vh; /* สูงเต็มจอ */
+  display: flex; /* ใช้ flex จัดตำแหน่ง */
+  flex-direction: column; /* เรียง h1, p, buttons จากบนลงล่าง */
+  align-items: center; /* จัดกลางแนวนอน */
+  justify-content: center; /* จัดกลางแนวตั้ง */
+  padding: 20px;
+  color: white; /* ตัวหนังสือสีขาว เพราะพื้นหลังสีเข้ม */
+}
+
+/* หัวข้อ "Todo App" */
+.home-container h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* คำอธิบายใต้หัวข้อ */
+.home-container p {
+  font-size: 18px;
+  margin-bottom: 32px;
+  opacity: 0.9; /* จางลงนิดหน่อยให้ดูไม่แข่งกับหัวข้อ */
+}
+
+/* กล่องครอบปุ่มทั้งหมด */
+.home-buttons {
+  display: flex;
+  flex-direction: column; /* ปุ่มเรียงจากบนลงล่าง */
+  gap: 12px; /* ช่องว่างระหว่างปุ่ม */
+  width: 250px; /* กำหนดความกว้างปุ่ม */
+}
+
+/* ปุ่มหลัก เช่น "เข้าสู่ระบบ", "submit" */
+.btn-primary {
+  display: block; /* ให้เต็มความกว้าง */
+  padding: 14px;
+  background-color: white; /* พื้นขาวตัดกับพื้นหลังม่วง */
+  color: #667eea; /* ตัวหนังสือสีม่วง */
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none; /* ลบเส้นใต้ เพราะ Link มีเส้นใต้โดยปกติ */
+  cursor: pointer;
+}
+
+/* เมื่อเอาเมาส์ไปวางบนปุ่ม */
+.btn-primary:hover {
+  background-color: #f0f0f0;
+}
+
+/* ปุ่มถูก disabled เช่น ตอนกำลังโหลด */
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ปุ่มรอง เช่น "สมัครสมาชิก" - ใช้กรอบแทนพื้นสี */
+.btn-secondary {
+  display: block;
+  padding: 14px;
+  background-color: transparent; /* พื้นใส ไม่มีสี */
+  color: white;
+  border: 2px solid white; /* กรอบสีขาว */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* พื้นหลังขาวจางๆ */
+}
+
+/* 
+   หน้า Login / Register - ฟอร์มกรอกข้อมูล
+ */
+
+/* กล่องหลัก จัดฟอร์มให้อยู่กลางจอ */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* กล่องสี่เหลี่ยมขาวที่ครอบฟอร์ม */
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เงาให้ดูลอยขึ้นมา */
+  width: 100%;
+  max-width: 400px; /* ไม่กว้างเกิน 400px */
+}
+
+/* หัวข้อ เช่น "เข้าสู่ระบบ" */
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #667eea;
+}
+
+/* แต่ละช่องกรอกข้อมูล (label + input) */
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* ชื่อช่อง เช่น "อีเมล", "รหัสผ่าน" */
+.form-group label {
+  display: block; /* ให้ขึ้นบรรทัดใหม่จาก input */
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ช่องกรอกข้อมูล */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* เมื่อคลิกที่ช่องกรอก ขอบเปลี่ยนเป็นสีม่วง */
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ข้อความแจ้ง error ใต้ input เช่น "กรุณากรอกอีเมล" */
+.field-error {
+  display: block;
+  color: #cc0000;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* กล่องแจ้ง error จาก API เช่น "อีเมลนี้ถูกใช้แล้ว" */
+.error-message {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #cc0000; /* เส้นแดงด้านซ้าย เตะตา */
+}
+
+/* ข้อความสลับหน้า เช่น "ยังไม่มีบัญชี? สมัครสมาชิก" */
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+/* ลิงก์ในข้อความสลับหน้า */
+.auth-switch a {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ปุ่มที่ดูเหมือนลิงก์ ไม่มีพื้นหลัง */
+.btn-link {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* หน้า TodoList - รายการสิ่งที่ต้องทำ */
+
+/* กล่องหลัก */
+.todo-container {
+  max-width: 600px;
+  margin: 0 auto; /* จัดกลาง */
+  padding: 30px 20px;
+}
+
+/* Header - ชื่อ app + ข้อมูล user */
+.todo-header {
+  display: flex;
+  justify-content: space-between; /* กระจายซ้าย-ขวา */
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.todo-header h1 {
+  color: white;
+  font-size: 28px;
+}
+
+/* กลุ่มชื่อ user + ปุ่ม logout */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+/* ปุ่มออกจากระบบ */
+.btn-logout {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-logout:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ฟอร์มเพิ่ม Todo ใหม่ */
+.add-todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+/* กล่องครอบ input ทั้ง 2 ช่อง */
+.form-inputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* เรียงจากบนลงล่าง */
+  gap: 8px;
+}
+
+/* ช่องพิมพ์ Todo ใหม่ */
+.todo-input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-input:focus {
+  outline: 2px solid white;
+}
+
+/* ปุ่ม "เพิ่ม" */
+.btn-add {
+  padding: 14px 24px;
+  background-color: white;
+  color: #667eea;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #f0f0f0;
+}
+
+/* รายการ Todo ทั้งหมด */
+.todo-list {
+  list-style: none; /* ลบจุดหน้ารายการ */
+  padding: 0;
+}
+
+/* Todo แต่ละอัน */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Todo ที่เสร็จแล้ว - จางลง */
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+/* ส่วนซ้าย: checkbox + ชื่อ Todo */
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Checkbox */
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* ชื่อ Todo */
+.todo-title {
+  font-size: 16px;
+}
+
+/* กล่องครอบชื่อ + description */
+.todo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* description ใต้ชื่อ */
+.todo-description {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ถ้าเสร็จแล้ว ขีดฆ่า */
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* ปุ่มลบ */
+.btn-delete {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+}
+
+/* ข้อความเมื่อไม่มี Todo */
+.empty-message {
+  text-align: center;
+  color: white;
+  padding: 40px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* สถิติ Todo ด้านล่าง */
+.todo-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  color: white;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* กำลังโหลด */
+.loading {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  padding-top: 40vh;
+}
