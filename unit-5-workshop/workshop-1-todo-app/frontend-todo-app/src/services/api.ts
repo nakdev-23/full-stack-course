@@ -6,7 +6,7 @@ import type { CreateTodoData, UpdateTodoData, TodosResponse, TodoResponse, Todo 
 // สร้าง axios  Instance ที่ตั้งค่าพื้นฐานไว้
 // ไม่ต้องพิมพ์ URL เต็มทุกครั้ง
 const API = axios.create({
-    baseURL: 'http://localhost:3000/api',  // URL ของ Backend (เราใช้แบบรันด้วยเครื่องของเราก่อน)
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     headers: {
         'Content-Type': 'application/json'  // บอกว่าส่งข้อมูลแบบ JSON
     }
